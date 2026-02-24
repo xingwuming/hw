@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人导航 · 极简起始页</title>
+    <!-- 使用Inter字体，现代且可读 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (免费图标库) 用于网站图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #f0f5fb 0%, #e9f0f7 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            color: #1e293b;
+        }
+
+        /* 主卡片 */
+        .nav-container {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 42px;
+            padding: 2.8rem 2.4rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2), 0 2px 12px 0 rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* 头部区域 = 问候 + 时间 + 搜索 */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.8rem;
+            gap: 1.5rem 1rem;
+        }
+
+        .greeting h1 {
+            font-weight: 600;
+            font-size: 2rem;
+            letter-spacing: -0.02em;
+            color: #0f1825;
+        }
+        .greeting p {
+            font-size: 0.95rem;
+            color: #475569;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .greeting i {
+            color: #3b82f6;
+        }
+
+        .datetime {
+            background: white;
+            padding: 0.7rem 1.6rem;
+            border-radius: 60px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.8);
+            display: flex;
+            gap: 20px;
+            color: #1e293b;
+        }
+        .date i, .time i {
+            margin-right: 8px;
+            color: #3b82f6;
+        }
+
+        /* 搜索引擎快速框 */
+        .search-section {
+            width: 100%;
+            background: rgba(255,255,255,0.6);
+            border-radius: 70px;
+            padding: 0.5rem 0.5rem 0.5rem 1.8rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.9);
+            backdrop-filter: blur(4px);
+            margin-top: 0.5rem;
+        }
+        .search-icon {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+        .search-section input {
+            flex: 1 1 240px;
+            background: transparent;
+            border: none;
+            padding: 0.9rem 0;
+            font-size: 1rem;
+            outline: none;
+            color: #0f1825;
+        }
+        .search-section input::placeholder {
+            color: #94a3b8;
+            font-weight: 400;
+        }
+        .engine-buttons {
+            display: flex;
+            gap: 6px;
+            padding-right: 6px;
+        }
+        .engine-btn {
+            background: white;
+            border: none;
+            border-radius: 40px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #334155;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .engine-btn i {
+            color: #3b82f6;
+        }
+        .engine-btn:hover {
+            background: #f8fafc;
+            border-color: #b9d5fd;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 18px -10px rgba(0,115,230,0.2);
+        }
+        .engine-btn.active {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+        .engine-btn.active i {
+            color: white;
+        }
+
+        /* 主网格 —— 导航分类 */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2.8rem 0 1.2rem;
+        }
+
+        .category {
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(4px);
+            border-radius: 32px;
+            padding: 1.7rem 1.4rem;
+            border: 1px solid rgba(255,255,255,0.7);
+            transition: all 0.25s;
+            box-shadow: 0 8px 18px -10px rgba(0,20,40,0.1);
+        }
+        .category:hover {
+            background: rgba(255,255,255,0.75);
+            border-color: white;
+            box-shadow: 0 18px 28px -12px #1e293b33;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            border-bottom: 2px solid rgba(59,130,246,0.2);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1.4rem;
+            color: #0b1c33;
+        }
+        .category-title i {
+            color: #3b82f6;
+            font-size: 1.5rem;
+            width: 32px;
+        }
+
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 0.6rem 0.8rem;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.35);
+            transition: 0.18s;
+            color: #1e293b;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+        .nav-item i {
+            width: 24px;
+            font-size: 1.2rem;
+            color: #2563eb;
+            text-align: center;
+        }
+        .nav-item span {
+            flex: 1;
+            font-size: 1rem;
+        }
+        .nav-item .link-hint {
+            font-size: 0.7rem;
+            opacity: 0.4;
+            transition: 0.2s;
+            font-weight: 400;
+        }
+        .nav-item:hover {
+            background: white;
+            border-color: #d9e9ff;
+            transform: scale(1.02) translateY(-2px);
+            box-shadow: 0 6px 14px -6px #1e3b5c30;
+        }
+        .nav-item:hover .link-hint {
+            opacity: 1;
+            color: #3b82f6;
+        }
+
+        /* 底部 — 快速添加书签的提示 */
+        .footer-note {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 2.3rem;
+            font-size: 0.9rem;
+            color: #5f6f88;
+            border-top: 1px dashed #cbd5e1;
+            padding-top: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .bookmark-bar {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .bookmark-item {
+            background: rgba(255,255,255,0.5);
+            border-radius: 40px;
+            padding: 0.4rem 1rem 0.4rem 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #e2e8f0;
+            transition: 0.15s;
+            color: #2d4059;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .bookmark-item i {
+            color: #f97316;
+            font-size: 0.9rem;
+        }
+        .bookmark-item:hover {
+            background: white;
+            border-color: #f97316;
+        }
+        .add-hint i {
+            color: #64748b;
+            margin-right: 5px;
+            font-size: 0.9rem;
+        }
+        .add-hint {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: #ecf3fa;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 650px) {
+            .nav-container {
+                padding: 2rem 1.5rem;
+            }
+            .datetime {
+                flex-direction: column;
+                gap: 6px;
+                width: 100%;
+            }
+            .search-section {
+                border-radius: 40px;
+                padding-left: 1.2rem;
+            }
+            .engine-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <!-- 头部区域 -->
+        <div class="header">
+            <div class="greeting">
+                <h1>👋 导航·光</h1>
+                <p><i class="fas fa-compass"></i> 你的专属网络起点 · 简洁随心</p>
+            </div>
+            <div class="datetime" id="datetimeWidget">
+                <span class="date"><i class="far fa-calendar-alt"></i> <span id="currentDate"></span></span>
+                <span class="time"><i class="far fa-clock"></i> <span id="currentTime"></span></span>
+            </div>
+        </div>
+
+        <!-- 综合搜索框 + 搜索引擎切换 -->
+        <div class="search-section">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="搜索或输入网址..." autofocus>
+            <div class="engine-buttons" id="engineGroup">
+                <button class="engine-btn active" data-engine="google"><i class="fab fa-google"></i> Google</button>
+                <button class="engine-btn" data-engine="bing"><i class="fab fa-microsoft"></i> Bing</button>
+                <button class="engine-btn" data-engine="baidu"><i class="fas fa-paw"></i> 百度</button>
+                <button class="engine-btn" data-engine="duck"><i class="fas fa-duck"></i> DuckDuckGo</button>
+            </div>
+        </div>
+
+        <!-- 主要导航网格 (常用分类) -->
+        <div class="nav-grid">
+            <!-- 开发 & 技术 -->
+            <div class="category">
+                <div class="category-title"><i class="fas fa-code"></i> 开发·技术</div>
+                <div class="links-list">
+                    <a href="https://github.com" target="_blank" class="nav-item"><i class="fab fa-github"></i><span>GitHub</span><span class="link-hint">↗</span></a>
+                    <a href="https://stackoverflow.com" target="_blank" class="nav-item"><i class="fab fa-stack-overflow"></i><span>Stack Overflow</span><span class="link-hint">↗</span></a>
+                    <a href="https://developer.mozilla.org" target="_blank" class="nav-item"><i class="fas fa-book"></i><span>MDN Web Docs</span><span class="link-hint">↗</span></a>
+                    <a href="https://vercel.com" target="_blank" class="nav-item"><i class="fas fa-cloud"></i><span>Vercel</span><span class="link-hint">↗</span></a>
+                    <a href="https://codesandbox.io" target="_blank" class="nav-item"><i class="fas fa-cubes"></i><span>CodeSandbox</span><span class="link-hint">↗</span></a>
+                </div>
+            </div>
+            <!-- 设计 & 灵感 -->
+            <div class="category">
+                <div class="category-title"><i class="fas fa-paint-brush"></i> 设计·灵感</div>
+                <div class="links-list">
+                    <a href="https://dribbble.com" target="_blank" class="nav-item"><i class="fab fa-dribbble"></i><span>Dribbble</span><span class="link-hint">↗</span></a>
+                    <a href="https://www.behance.net" target="_blank" class="nav-item"><i class="fab fa-behance"></i><span>Behance</span><span class="link-hint">↗</span></a>
+                    <a href="https://fonts.google.com" target="_blank" class="nav-item"><i class="fas fa-font"></i><span>Google Fonts</span><span class="link-hint">↗</span></a>
+                    <a href="https://colorhunt.co" target="_blank" class="nav-item"><i class="fas fa-palette"></i><span>Color Hunt</span><span class="link-hint">↗</span></a>
+                    <a href="https://unsplash.com" target="_blank" class="nav-item"><i class="fas fa-camera"></i><span>Unsplash</span><span class="link-hint">↗</span></a>
+                </div>
+            </div>
+            <!-- 阅读 & 知识 -->
+            <div class="category">
+                <div class="category-title"><i class="fas fa-newspaper"></i> 阅读·知识</div>
+                <div class="links-list">
+                    <a href="https://medium.com" target="_blank" class="nav-item"><i class="fab fa-medium"></i><span>Medium</span><span class="link-hint">↗</span></a>
+                    <a href="https://wikipedia.org" target="_blank" class="nav-item"><i class="fab fa-wikipedia-w"></i><span>Wikipedia</span><span class="link-hint">↗</span></a>
+                    <a href="https://news.ycombinator.com" target="_blank" class="nav-item"><i class="fab fa-hacker-news"></i><span>Hacker News</span><span class="link-hint">↗</span></a>
+                    <a href="https://arxiv.org" target="_blank" class="nav-item"><i class="fas fa-graduation-cap"></i><span>arXiv</span><span class="link-hint">↗</span></a>
+                    <a href="https://www.producthunt.com" target="_blank" class="nav-item"><i class="fab fa-product-hunt"></i><span>Product Hunt</span><span class="link-hint">↗</span></a>
+                </div>
+            </div>
+            <!-- 工具 & 日常 -->
+            <div class="category">
+                <div class="category-title"><i class="fas fa-tools"></i> 工具·日常</div>
+                <div class="links-list">
+                    <a href="https://mail.google.com" target="_blank" class="nav-item"><i class="fas fa-envelope"></i><span>Gmail</span><span class="link-hint">↗</span></a>
+                    <a href="https://drive.google.com" target="_blank" class="nav-item"><i class="fab fa-google-drive"></i><span>Google Drive</span><span class="link-hint">↗</span></a>
+                    <a href="https://translate.google.com" target="_blank" class="nav-item"><i class="fas fa-language"></i><span>Google 翻译</span><span class="link-hint">↗</span></a>
+                    <a href="https://www.notion.so" target="_blank" class="nav-item"><i class="fab fa-notion"></i><span>Notion</span><span class="link-hint">↗</span></a>
+                    <a href="https://trello.com" target="_blank" class="nav-item"><i class="fab fa-trello"></i><span>Trello</span><span class="link-hint">↗</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部自定义快速书签 + 提示 -->
+        <div class="footer-note">
+            <div class="bookmark-bar">
+                <span style="font-weight:500;"><i class="fas fa-star" style="color: #eab308;"></i> 快捷条:</span>
+                <a href="#" class="bookmark-item" id="ytQuick"><i class="fab fa-youtube"></i> YouTube</a>
+                <a href="#" class="bookmark-item" id="twQuick"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" class="bookmark-item" id="redditQuick"><i class="fab fa-reddit-alien"></i> Reddit</a>
+                <a href="#" class="bookmark-item" id="figQuick"><i class="fab fa-figma"></i> Figma</a>
+            </div>
+            <div class="add-hint">
+                <i class="fas fa-plus-circle"></i> <span>拖拽链接到分类或右键添加</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ---------- 实时时钟和日期 ----------
+            function updateDateTime() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                document.getElementById('currentDate').innerText = `${year}-${month}-${day}`;
+
+                let hours = now.getHours();
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12 || 12;  // 12小时制
+                document.getElementById('currentTime').innerText = `${hours}:${minutes}:${seconds} ${ampm}`;
+            }
+            updateDateTime();
+            setInterval(updateDateTime, 500);
+
+            // ---------- 搜索引擎切换 & 搜索功能 ----------
+            const searchInput = document.getElementById('searchInput');
+            const engineBtns = document.querySelectorAll('.engine-btn');
+            let currentEngine = 'google';   // 默认
+
+            // 切换激活样式
+            engineBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    engineBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentEngine = this.dataset.engine;
+                    // 输入框占位符微调 (可选)
+                    if (currentEngine === 'google') searchInput.placeholder = '使用 Google 搜索...';
+                    else if (currentEngine === 'bing') searchInput.placeholder = '使用 Bing 搜索...';
+                    else if (currentEngine === 'baidu') searchInput.placeholder = '使用 百度 搜索...';
+                    else if (currentEngine === 'duck') searchInput.placeholder = '使用 DuckDuckGo 搜索...';
+                });
+            });
+
+            // 处理搜索/网址跳转 (回车执行)
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const query = this.value.trim();
+                    if (query === '') return;
+                    
+                    // 智能判断: 如果包含点且不含空格，当作网址简单处理(补全https)
+                    if (query.includes('.') && !query.includes(' ') && !query.startsWith('http')) {
+                        // 极简处理: 直接跳转 添加https前缀
+                        window.location.href = 'https://' + query;
+                        return;
+                    } else if (query.startsWith('http://') || query.startsWith('https://')) {
+                        window.location.href = query;
+                        return;
+                    }
+
+                    // 否则根据所选搜索引擎构造
+                    let searchUrl = '';
+                    switch (currentEngine) {
+                        case 'google':
+                            searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                            break;
+                        case 'bing':
+                            searchUrl = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+                            break;
+                        case 'baidu':
+                            searchUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(query)}`;
+                            break;
+                        case 'duck':
+                            searchUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+                            break;
+                        default:
+                            searchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                    }
+                    window.location.href = searchUrl;
+                }
+            });
+
+            // 底部快捷条 真实链接（让它们可点击, 避免死链）
+            document.getElementById('ytQuick').href = 'https://youtube.com';
+            document.getElementById('twQuick').href = 'https://twitter.com';
+            document.getElementById('redditQuick').href = 'https://reddit.com';
+            document.getElementById('figQuick').href = 'https://figma.com';
+
+            // 可选: 为所有 .nav-item 添加新窗口打开（已在HTML里target="_blank", 但以防万一）
+            // 不作赘述。另可增加一个趣味: 点击add-hint 提示可定制
+            document.querySelector('.add-hint').addEventListener('click', function() {
+                alert('✨ 你可以右键收藏此页，或者直接编辑代码添加常用链接。\n也可拖拽任意链接到分类区域(目前静态演示)');
+            });
+
+            // 更友好聚焦
+            searchInput.focus();
+        })();
+    </script>
+
+    <!-- 额外装饰：让提示更丰富，不改动结构，加一点点好玩的水印效果（无意义但美观）-->
+    <div style="margin-top: 1.5rem; font-size: 0.8rem; opacity: 0.4; display: flex; gap: 18px; color: #475569;">
+        <span><i class="far fa-bookmark"></i> 个人导航 · 可自由增删</span>
+        <span><i class="fas fa-mouse-pointer"></i> 单击书签直达</span>
+    </div>
+</body>
+</html>
