@@ -2,8 +2,8 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
-    <title>海南恒湾科技集团 · 导航</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover">
+    <title>海南科技集团有限公司 · 导航</title>
     <!-- Font Awesome 图标库 (v6 免费版) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -11,104 +11,69 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: system-ui, 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
         }
 
         body {
-            background: linear-gradient(145deg, #f4f7fc 0%, #e9eef4 100%);
+            background: #f4f7fc;
             min-height: 100vh;
-            padding: 24px 20px 32px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            padding: 0 16px 24px;
         }
 
-        .main-container {
-            max-width: 1600px;
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
             width: 100%;
+            flex: 1;
         }
 
         .header {
-            text-align: center;
-            margin-bottom: 28px;
+            padding: 24px 0 16px;
+            text-align: left;
+            border-bottom: 2px solid rgba(18, 78, 120, 0.12);
+            margin-bottom: 24px;
         }
 
-        .company-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .company-title h1 {
-            font-size: 2.5rem;
+        .company-name {
+            font-size: 2.2rem;
             font-weight: 600;
-            letter-spacing: 2px;
-            background: linear-gradient(135deg, #0b3b5c, #1a5f7a);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 4px 12px rgba(0, 40, 70, 0.1);
-        }
-
-        /* 搜索卡片 */
-        .search-section {
-            background: rgba(255,255,255,0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 64px;
-            padding: 6px 6px 6px 24px;
-            margin: 20px 0 40px;
-            box-shadow: 0 20px 35px -8px rgba(1, 37, 58, 0.15), 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid rgba(255,255,255,0.6);
-            transition: box-shadow 0.2s;
-        }
-
-        .search-section:hover {
-            box-shadow: 0 24px 42px -10px rgba(9, 60, 94, 0.2);
-        }
-
-        .search-wrapper {
+            letter-spacing: 1px;
+            color: #0a2e4b;
             display: flex;
             align-items: center;
+            gap: 10px;
             flex-wrap: wrap;
-            gap: 8px;
         }
 
-        .search-input-area {
-            flex: 3 1 260px;
-            display: flex;
-            align-items: center;
+        .company-name i {
+            color: #1e6f9f;
+            font-size: 2rem;
             background: white;
-            border-radius: 48px;
-            padding: 4px 4px 4px 20px;
-            box-shadow: inset 0 2px 5px rgba(0,0,0,0.02), 0 0 0 1px rgba(42, 106, 145, 0.1);
+            padding: 8px;
+            border-radius: 18px;
+            box-shadow: 0 6px 12px rgba(0,20,50,0.08);
         }
 
-        .search-input-area i {
-            color: #7f9eb5;
-            font-size: 1.1rem;
-            margin-right: 10px;
+        .sub-tag {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #3a6a8b;
+            margin-top: 8px;
+            padding-left: 4px;
         }
 
-        #search-input {
-            width: 100%;
-            border: none;
-            outline: none;
-            font-size: 1.05rem;
-            padding: 14px 8px 14px 0;
-            background: transparent;
-            color: #1a3e55;
+        .search-section {
+            background: white;
+            border-radius: 32px;
+            padding: 20px 18px;
+            box-shadow: 0 12px 28px rgba(0, 20, 50, 0.08);
+            margin-bottom: 36px;
+            border: 1px solid rgba(30, 111, 159, 0.1);
         }
 
-        #search-input::placeholder {
-            color: #99b6cc;
-            font-weight: 300;
-            letter-spacing: 0.3px;
-        }
-
-        .search-actions {
+        .search-container {
             display: flex;
             align-items: center;
             gap: 8px;
@@ -116,57 +81,96 @@
         }
 
         .engine-selector {
-            background: white;
+            position: relative;
+            min-width: 100px;
+        }
+
+        .engine-selector select {
+            width: 100%;
+            padding: 14px 28px 14px 16px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #0a2e4b;
+            background-color: #f0f5fa;
+            border: 1.5px solid #d4e0ea;
             border-radius: 40px;
-            padding: 3px 6px 3px 16px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-            border: 1px solid #dbe4eb;
-            display: flex;
-            align-items: center;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.15s;
+            line-height: 1.2;
         }
 
         .engine-selector i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
             color: #1e6f9f;
+            pointer-events: none;
             font-size: 1rem;
-            margin-right: 6px;
         }
 
-        #search-engine {
-            border: none;
+        .engine-selector select:hover,
+        .engine-selector select:focus {
+            border-color: #1e6f9f;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(30,111,159,0.1);
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            background: #f0f5fa;
+            border: 1.5px solid #d4e0ea;
+            border-radius: 60px;
+            align-items: center;
+            padding: 0 8px 0 18px;
+            transition: border 0.15s, box-shadow 0.15s;
+        }
+        .search-input-wrapper:focus-within {
+            border-color: #1e6f9f;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(30,111,159,0.1);
+        }
+
+        .search-input-wrapper i {
+            color: #6b8da8;
+            font-size: 1.1rem;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 14px 12px;
+            font-size: 1rem;
             background: transparent;
-            font-size: 1rem;
-            padding: 10px 28px 10px 4px;
-            color: #1a4b67;
-            font-weight: 500;
+            border: none;
             outline: none;
-            cursor: pointer;
-            border-radius: 30px;
-            appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%231a5f7a" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right 8px center;
-            background-size: 14px;
+            color: #0a2e4b;
         }
 
-        #search-engine option {
-            font-weight: normal;
+        #search-input::placeholder {
+            color: #7a98af;
+            font-weight: 400;
         }
 
         .search-btn {
-            background: #0b4b6b;
-            border: none;
+            background: #1e6f9f;
             color: white;
-            padding: 12px 28px;
-            border-radius: 48px;
-            font-size: 1.1rem;
+            border: none;
+            border-radius: 60px;
+            padding: 12px 24px;
+            font-size: 1.05rem;
             font-weight: 500;
             display: flex;
             align-items: center;
             gap: 8px;
             cursor: pointer;
-            box-shadow: 0 10px 18px -8px #0a3a55;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.15s;
+            box-shadow: 0 6px 12px rgba(18,78,120,0.2);
+            transition: 0.2s;
+            border: 1px solid #1a5f87;
             white-space: nowrap;
         }
 
@@ -175,492 +179,340 @@
         }
 
         .search-btn:hover {
-            background: #0e5f85;
-            transform: scale(1.02);
-            box-shadow: 0 12px 22px -8px #063349;
+            background: #135b82;
+            box-shadow: 0 8px 16px rgba(18,78,120,0.25);
+            transform: scale(1.01);
         }
 
         .search-btn:active {
-            background: #083e57;
+            background: #0e4a6b;
             transform: scale(0.99);
         }
 
-        .engine-hint {
-            margin-top: 10px;
-            margin-left: 20px;
-            font-size: 0.8rem;
-            color: #527a96;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .engine-hint i {
-            font-size: 0.7rem;
-            opacity: 0.8;
-        }
-
-        /* 分类网格 —— 五列 */
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            margin: 16px 0 30px;
-        }
-
-        .category-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-radius: 28px;
-            padding: 20px 16px 18px;
-            box-shadow: 0 20px 30px -10px rgba(20, 60, 90, 0.12);
-            border: 1px solid rgba(255,255,255,0.7);
-            transition: transform 0.2s, box-shadow 0.25s;
+        .categories {
             display: flex;
             flex-direction: column;
+            gap: 36px;
         }
 
-        .category-card:hover {
-            box-shadow: 0 28px 38px -14px rgba(9, 60, 94, 0.18);
-            transform: translateY(-3px);
-            background: rgba(255, 255, 255, 0.95);
+        .category {
+            background: transparent;
         }
 
-        .card-header {
+        .category-header {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 2px solid rgba(21, 94, 134, 0.18);
-            padding-bottom: 14px;
-            margin-bottom: 16px;
+            align-items: baseline;
+            margin-bottom: 18px;
+            border-left: 6px solid #1e6f9f;
+            padding-left: 18px;
         }
 
-        .card-header i {
+        .category-header h2 {
             font-size: 1.8rem;
-            width: 2rem;
-            color: #1f6e9c;
-            background: rgba(31, 110, 156, 0.08);
-            padding: 6px;
-            border-radius: 16px;
-        }
-
-        .card-header h2 {
-            font-size: 1.4rem;
             font-weight: 600;
-            color: #153e54;
-            letter-spacing: 0.5px;
+            color: #0a2e4b;
+            letter-spacing: -0.01em;
         }
 
-        .link-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .link-item {
-            display: flex;
-            align-items: center;
-            padding: 8px 10px 8px 14px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 18px;
-            transition: all 0.18s;
-            border: 1px solid transparent;
-        }
-
-        .link-item:hover {
-            background: white;
-            border-color: #cbdde9;
-            box-shadow: 0 6px 14px -6px rgba(18, 70, 100, 0.12);
-            transform: translateX(4px);
-        }
-
-        .link-item i {
-            width: 22px;
-            color: #2a7aa2;
-            font-size: 1.1rem;
+        .category-header i {
             margin-right: 12px;
+            color: #1e6f9f;
+            font-size: 1.6rem;
+            width: 1.8rem;
             text-align: center;
         }
 
-        .link-item a {
+        .category-desc {
+            margin-left: 16px;
+            font-size: 0.9rem;
+            color: #4a6f89;
+            font-weight: 400;
+        }
+
+        .site-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 16px;
+        }
+
+        .site-card {
+            background: white;
+            border-radius: 24px;
+            padding: 16px 8px 12px;
             text-decoration: none;
+            color: #0f3a54;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 6px 14px rgba(0, 20, 40, 0.04);
+            border: 1px solid #e2ebf3;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(2px);
+        }
+
+        .site-card:hover {
+            transform: translateY(-4px);
+            border-color: #b6d2e8;
+            box-shadow: 0 16px 24px rgba(18, 78, 120, 0.1);
+            background: #fdfdfe;
+        }
+
+        .site-icon {
+            font-size: 2.4rem;
+            margin-bottom: 8px;
+            color: #1e6f9f;
+            background: #e7f0f8;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            transition: 0.15s;
+        }
+
+        .site-card:hover .site-icon {
+            background: #d3e4f2;
+            color: #0a4b6e;
+        }
+
+        .site-name {
+            font-weight: 550;
             font-size: 1rem;
-            font-weight: 500;
-            color: #1c4b66;
-            flex: 1;
-            transition: color 0.15s;
-            word-break: break-word;
+            margin-bottom: 4px;
+            line-height: 1.3;
         }
 
-        .link-item a:hover {
-            color: #0b5f83;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        .link-item .tag {
-            font-size: 0.65rem;
-            background: #d4e3ef;
-            padding: 3px 7px;
-            border-radius: 30px;
-            color: #1a5477;
-            margin-left: 6px;
-            font-weight: 500;
-            letter-spacing: 0.3px;
+        .site-domain {
+            font-size: 0.7rem;
+            color: #66809b;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
             white-space: nowrap;
         }
 
         .footer {
             margin-top: 48px;
             text-align: center;
-            color: #52758c;
-            font-size: 0.9rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            color: #5f7e97;
+            font-size: 0.85rem;
+            padding: 18px 0 8px;
+            border-top: 1px dashed #b9cfdf;
         }
 
         .footer i {
-            margin: 0 6px;
-            color: #1e6f9f;
+            margin: 0 4px;
+            opacity: 0.7;
         }
 
-        /* 响应式 */
-        @media screen and (max-width: 1300px) {
-            .nav-grid {
+        @media (max-width: 600px) {
+            body {
+                padding: 0 10px 20px;
+            }
+            .company-name {
+                font-size: 1.8rem;
+            }
+            .company-name i {
+                font-size: 1.6rem;
+                padding: 6px;
+            }
+            .search-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .engine-selector {
+                min-width: 100%;
+            }
+            .search-input-wrapper {
+                width: 100%;
+            }
+            .search-btn {
+                justify-content: center;
+                padding: 14px 16px;
+                width: 100%;
+            }
+            .category-header h2 {
+                font-size: 1.6rem;
+            }
+            .site-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .site-card {
+                padding: 14px 6px 10px;
+            }
+            .site-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 2rem;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            .site-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-        }
-
-        @media screen and (max-width: 900px) {
-            .nav-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media screen and (max-width: 640px) {
-            body { padding: 16px 12px; }
-            .company-title h1 { font-size: 1.9rem; }
-            .search-section { border-radius: 36px; padding: 6px 6px 6px 16px; }
-            .search-wrapper { gap: 6px; }
-            .search-input-area { padding-left: 14px; }
-            .search-btn { padding: 12px 20px; }
-            .engine-selector { padding-left: 10px; }
-            .nav-grid { grid-template-columns: 1fr; }
-            .card-header h2 { font-size: 1.5rem; }
-        }
-
-        @media screen and (max-width: 480px) {
-            .search-actions { width: 100%; justify-content: space-between; }
-            .engine-selector { flex: 1; }
-            .search-btn { width: 100%; justify-content: center; margin-top: 4px; }
         }
     </style>
 </head>
 <body>
-<div class="main-container">
+<div class="wrapper">
     <!-- 头部 -->
     <div class="header">
-        <div class="company-title">
-            <h1><i class="fas fa-palm-tree" style="color: #1f6e9c; margin-right: 6px;"></i>海南恒湾科技集团有限公司</h1>
+        <div class="company-name">
+            <i class="fas fa-microchip"></i>
+            海南科技集团有限公司
+        </div>
+        <div class="sub-tag">
+            <i class="fas fa-map-pin"></i> 智创自贸港 · 科技导航
         </div>
     </div>
 
-    <!-- 搜索栏 -->
+    <!-- 搜索栏：默认百度，可切换 -->
     <div class="search-section">
-        <div class="search-wrapper">
-            <div class="search-input-area">
-                <i class="fas fa-search"></i>
-                <input type="text" id="search-input" placeholder="输入关键词，回车搜索…" autocomplete="off">
+        <div class="search-container">
+            <div class="engine-selector">
+                <select id="search-engine" aria-label="选择搜索引擎">
+                    <option value="baidu" selected>🔍 百度</option>
+                    <option value="bing">🌐 必应</option>
+                    <option value="google">🔎 谷歌</option>
+                </select>
+                <i class="fas fa-chevron-down"></i>
             </div>
-            <div class="search-actions">
-                <div class="engine-selector">
-                    <i class="fas fa-globe"></i>
-                    <select id="search-engine" aria-label="选择搜索引擎">
-                        <option value="baidu" selected>🔍 百度</option>
-                        <option value="google">🔎 Google</option>
-                        <option value="bing">🌐 Bing</option>
-                        <option value="sogou">🦊 搜狗</option>
-                    </select>
-                </div>
-                <button class="search-btn" id="search-button">
-                    <i class="fas fa-arrow-right"></i> 搜索
-                </button>
+            <div class="search-input-wrapper">
+                <i class="fas fa-search" style="margin-right: 4px;"></i>
+                <input type="text" id="search-input" placeholder="输入关键词，海量信息一触即达" autocomplete="off" />
             </div>
+            <button class="search-btn" id="search-button">
+                <i class="fas fa-arrow-right"></i> 搜索
+            </button>
         </div>
-        <div class="engine-hint">
-            <i class="fas fa-exchange-alt"></i>
-            <span>默认百度 · 点击下拉可切换 Google / Bing / 搜狗</span>
+        <div style="margin-top: 10px; font-size: 0.8rem; color: #5a7e99; padding-left: 8px;">
+            <i class="fas fa-exchange-alt"></i> 点击下拉可切换百度/必应/谷歌
         </div>
     </div>
 
-    <!-- 分类导航：五列 -->
-    <div class="nav-grid">
-        <!-- 1. 常用类 -->
-        <div class="category-card">
-            <div class="card-header">
-                <i class="fas fa-star"></i>
-                <h2>常用类</h2>
+    <!-- 两大分类：常用软件、在线测试 -->
+    <div class="categories">
+        <!-- 1. 常用软件（新增打印机驱动网并排第一位） -->
+        <section class="category">
+            <div class="category-header">
+                <i class="fas fa-laptop"></i>
+                <h2>常用软件</h2>
+                <span class="category-desc">· 办公必备</span>
             </div>
-            <ul class="link-list">
-                <!-- 替换为 Honeyview 链接 -->
-                <li class="link-item">
-                    <i class="fas fa-image"></i>
-                    <a href="https://www.bandisoft.com/honeyview/" target="_blank" rel="noopener">Honeyview 图片浏览器</a>
-                    <span class="tag">看图</span>
-                </li>
-                <li class="link-item">
-                    <i class="fab fa-windows"></i>
-                    <a href="https://www.microsoft.com/zh-cn/software-download/" target="_blank" rel="noopener">微软下载中心</a>
-                    <span class="tag">系统</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-cube"></i>
-                    <a href="https://www.onlinedown.net/" target="_blank" rel="noopener">华军软件园</a>
-                    <span class="tag">常用</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <a href="https://www.duote.com/" target="_blank" rel="noopener">多特软件站</a>
-                    <span class="tag">安全</span>
-                </li>
-                <li class="link-item">
-                    <i class="fab fa-chrome"></i>
-                    <a href="https://www.google.cn/chrome/" target="_blank" rel="noopener">Chrome 浏览器</a>
-                    <span class="tag">必备</span>
-                </li>
-            </ul>
-        </div>
+            <div class="site-grid">
+                <!-- 打印机驱动网 (新) 第一位 -->
+                <a href="https://www.dyjqd.com/" target="_blank" rel="noopener" class="site-card">
+                    <div class="site-icon"><i class="fas fa-print"></i></div>
+                    <span class="site-name">打印机驱动网</span>
+                    <span class="site-domain">dyjqd.com</span>
+                </a>
+                <!-- WPS教育考试专用版 -->
+                <a href="https://ncre.neea.edu.cn/res/Home/2012/1ab1f38f3a81af338dbb4f6495568f28.rar" target="_blank" rel="noopener" class="site-card">
+                    <div class="site-icon"><i class="fas fa-file-word"></i></div>
+                    <span class="site-name">WPS教育考试专用版</span>
+                    <span class="site-domain">ncre.neea.edu.cn</span>
+                </a>
+                <!-- Apabi Reader 4.5.2 -->
+                <a href="http://www.apabi.cn/download/product/ApabiReader4.5.2_PRC/PRCReaderSetup-4.5.2-1790.exe" target="_blank" rel="noopener" class="site-card">
+                    <div class="site-icon"><i class="fas fa-book-open"></i></div>
+                    <span class="site-name">Apabi Reader 4.5.2</span>
+                    <span class="site-domain">apabi.cn</span>
+                </a>
+                <!-- 海政通 -->
+                <a href="https://download-xc-pro-ding.hzt.hainan.gov.cn/hzthlw_pc/index.html" target="_blank" rel="noopener" class="site-card">
+                    <div class="site-icon"><i class="fas fa-sailboat"></i></div>
+                    <span class="site-name">海政通</span>
+                    <span class="site-domain">hainan.gov.cn</span>
+                </a>
+                <!-- 智海安全卫士 -->
+                <a href="https://36.101.208.5" target="_blank" rel="noopener" class="site-card">
+                    <div class="site-icon"><i class="fas fa-shield-hal"></i></div>
+                    <span class="site-name">智海安全卫士</span>
+                    <span class="site-domain">36.101.208.5</span>
+                </a>
+                <!-- 谷歌浏览器 -->
+                <a href="https://www.google.cn/chrome/" target="_blank" rel="noopener" class="site-card">
+                    <div class="site-icon"><i class="fab fa-chrome"></i></div>
+                    <span class="site-name">谷歌浏览器</span>
+                    <span class="site-domain">google.cn/chrome</span>
+                </a>
+            </div>
+        </section>
 
-        <!-- 2. 上传类 -->
-        <div class="category-card">
-            <div class="card-header">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <h2>上传类</h2>
+        <!-- 2. 在线测试 (鼠标测试、键盘测试、网速测试) -->
+        <section class="category">
+            <div class="category-header">
+                <i class="fas fa-mouse"></i>
+                <h2>在线测试</h2>
+                <span class="category-desc">· 外设与网络检测</span>
             </div>
-            <ul class="link-list">
-                <li class="link-item">
-                    <i class="fas fa-cloud"></i>
-                    <a href="https://pan.baidu.com/" target="_blank" rel="noopener">百度网盘</a>
-                    <span class="tag">大空间</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-cloud-sun"></i>
-                    <a href="https://www.aliyundrive.com/" target="_blank" rel="noopener">阿里云盘</a>
-                    <span class="tag">不限速</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-rocket"></i>
-                    <a href="https://cowtransfer.com/" target="_blank" rel="noopener">奶牛快传</a>
-                    <span class="tag">临时分享</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-envelope-open-text"></i>
-                    <a href="https://www.wenshushu.cn/" target="_blank" rel="noopener">文叔叔</a>
-                    <span class="tag">大文件</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-box"></i>
-                    <a href="https://www.123pan.com/" target="_blank" rel="noopener">123云盘</a>
-                    <span class="tag">免费</span>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 3. 官网类 -->
-        <div class="category-card">
-            <div class="card-header">
-                <i class="fas fa-building"></i>
-                <h2>官网类</h2>
+            <div class="site-grid">
+                <!-- 鼠标测试 -->
+                <a href="https://www.mousetester.cn/" target="_blank" rel="noopener" class="site-card">
+                    <div class="site-icon"><i class="fas fa-arrows-alt"></i></div>
+                    <span class="site-name">鼠标测试</span>
+                    <span class="site-domain">mousetester.cn</span>
+                </a>
+                <!-- 键盘测试 -->
+                <a href="https://www.zfrontier.com/lab/keyboardTester" target="_blank" rel="noopener" class="site-card">
+                    <div class="site-icon"><i class="fas fa-keyboard"></i></div>
+                    <span class="site-name">键盘测试</span>
+                    <span class="site-domain">zfrontier.com</span>
+                </a>
+                <!-- 网速测试 -->
+                <a href="https://test.ustc.edu.cn/" target="_blank" rel="noopener" class="site-card">
+                    <div class="site-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <span class="site-name">网速测试</span>
+                    <span class="site-domain">test.ustc.edu.cn</span>
+                </a>
             </div>
-            <ul class="link-list">
-                <li class="link-item">
-                    <i class="fas fa-flag"></i>
-                    <a href="http://www.gov.cn/" target="_blank" rel="noopener">中国政府网</a>
-                    <span class="tag">权威</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-newspaper"></i>
-                    <a href="http://www.people.com.cn/" target="_blank" rel="noopener">人民网</a>
-                    <span class="tag">新闻</span>
-                </li>
-                <li class="link-item">
-                    <i class="fab fa-weixin"></i>
-                    <a href="https://weixin.qq.com/" target="_blank" rel="noopener">微信官网</a>
-                    <span class="tag">通讯</span>
-                </li>
-                <li class="link-item">
-                    <i class="fab fa-qq"></i>
-                    <a href="https://im.qq.com/" target="_blank" rel="noopener">QQ 官方</a>
-                    <span class="tag">即时</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-gem"></i>
-                    <a href="https://www.tencent.com/zh-cn/" target="_blank" rel="noopener">腾讯官网</a>
-                    <span class="tag">集团</span>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 4. 打印机类 -->
-        <div class="category-card">
-            <div class="card-header">
-                <i class="fas fa-print"></i>
-                <h2>打印机类</h2>
-            </div>
-            <ul class="link-list">
-                <li class="link-item">
-                    <i class="fas fa-tools"></i>
-                    <a href="https://support.hp.com/cn-zh/drivers/printers" target="_blank" rel="noopener">惠普驱动支持</a>
-                    <span class="tag">HP</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-print"></i>
-                    <a href="https://www.canon.com.cn/supports/download/" target="_blank" rel="noopener">佳能驱动下载</a>
-                    <span class="tag">Canon</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-wrench"></i>
-                    <a href="https://www.epson.com.cn/Apps/tech_support/index.aspx" target="_blank" rel="noopener">爱普生服务</a>
-                    <span class="tag">Epson</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-dice-d6"></i>
-                    <a href="https://support.brother.com/g/b/countrytop.aspx?c=cn&lang=zh" target="_blank" rel="noopener">兄弟中国支持</a>
-                    <span class="tag">Brother</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-network-wired"></i>
-                    <a href="https://www.fujixerox.com.cn/" target="_blank" rel="noopener">富士胶片商业</a>
-                    <span class="tag">驱动/维修</span>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 5. 测试类 -->
-        <div class="category-card">
-            <div class="card-header">
-                <i class="fas fa-flask"></i>
-                <h2>测试类</h2>
-            </div>
-            <ul class="link-list">
-                <li class="link-item">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <a href="https://www.speedtest.cn/" target="_blank" rel="noopener">SpeedTest 测速</a>
-                    <span class="tag">网速</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-code"></i>
-                    <a href="https://tool.lu/" target="_blank" rel="noopener">在线工具</a>
-                    <span class="tag">开发</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-bug"></i>
-                    <a href="https://json.cn/" target="_blank" rel="noopener">JSON 格式化</a>
-                    <span class="tag">调试</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-mobile-alt"></i>
-                    <a href="https://www.browserling.com/" target="_blank" rel="noopener">浏览器兼容测试</a>
-                    <span class="tag">跨平台</span>
-                </li>
-                <li class="link-item">
-                    <i class="fas fa-shield-virus"></i>
-                    <a href="https://www.virustotal.com/" target="_blank" rel="noopener">VirusTotal</a>
-                    <span class="tag">安全检测</span>
-                </li>
-            </ul>
-        </div>
+        </section>
     </div>
 
-    <!-- 底部 -->
+    <!-- 页脚 -->
     <div class="footer">
-        <span><i class="far fa-copyright"></i> 海南恒湾科技集团有限公司 · 内部导航</span>
-        <span><i class="fas fa-sync-alt"></i> 每日更新常用入口</span>
-        <span><i class="fas fa-mouse"></i> 点击链接直达</span>
+        <i class="far fa-copyright"></i> 海南科技集团有限公司 · 智慧导航 
+        <i class="fas fa-wifi"></i> 兼容手机/平板
     </div>
 </div>
 
 <script>
     (function() {
-        'use strict';
-
         const searchInput = document.getElementById('search-input');
-        const searchEngineSelect = document.getElementById('search-engine');
         const searchBtn = document.getElementById('search-button');
-
-        const engineConfig = {
-            baidu: {
-                url: 'https://www.baidu.com/s?wd=',
-                param: 'wd'
-            },
-            google: {
-                url: 'https://www.google.com/search?q=',
-                param: 'q'
-            },
-            bing: {
-                url: 'https://www.bing.com/search?q=',
-                param: 'q'
-            },
-            sogou: {
-                url: 'https://www.sogou.com/web?query=',
-                param: 'query'
-            }
-        };
+        const engineSelect = document.getElementById('search-engine');
 
         function performSearch() {
-            let query = searchInput.value.trim();
-            const engine = searchEngineSelect.value;
-            const config = engineConfig[engine];
-
-            if (!config) {
-                window.location.href = 'https://www.baidu.com/s?wd=' + encodeURIComponent(query || '');
+            let keyword = searchInput.value.trim();
+            if (keyword === '') {
+                alert('请输入要搜索的内容');
                 return;
             }
-
-            let targetUrl;
-            if (query === '') {
-                const baseMap = {
-                    baidu: 'https://www.baidu.com/',
-                    google: 'https://www.google.com/',
-                    bing: 'https://www.bing.com/',
-                    sogou: 'https://www.sogou.com/'
-                };
-                targetUrl = baseMap[engine] || 'https://www.baidu.com/';
+            const engine = engineSelect.value;
+            let searchUrl = '';
+            if (engine === 'baidu') {
+                searchUrl = 'https://www.baidu.com/s?wd=' + encodeURIComponent(keyword);
+            } else if (engine === 'bing') {
+                searchUrl = 'https://www.bing.com/search?q=' + encodeURIComponent(keyword);
+            } else if (engine === 'google') {
+                searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(keyword);
             } else {
-                targetUrl = config.url + encodeURIComponent(query);
+                searchUrl = 'https://www.baidu.com/s?wd=' + encodeURIComponent(keyword);
             }
-            window.location.href = targetUrl;
+            window.open(searchUrl, '_blank');
         }
 
-        searchBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            performSearch();
-        });
-
+        searchBtn.addEventListener('click', performSearch);
         searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 performSearch();
             }
         });
-
-        searchEngineSelect.addEventListener('change', function() {
-            const engine = searchEngineSelect.value;
-            const engineNames = {
-                baidu: '百度',
-                google: 'Google',
-                bing: 'Bing',
-                sogou: '搜狗'
-            };
-            searchInput.placeholder = `在 ${engineNames[engine] || '百度'} 上搜索…`;
-        });
-
-        searchInput.placeholder = '在 百度 上搜索…';
     })();
 </script>
 </body>
