@@ -249,6 +249,7 @@
             border: 1px solid #e2ebf3;
             transition: all 0.2s ease;
             backdrop-filter: blur(2px);
+            cursor: pointer;
         }
 
         .site-card:hover {
@@ -294,6 +295,16 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+        }
+
+        .copy-hint {
+            font-size: 0.65rem;
+            color: #1e6f9f;
+            margin-top: 4px;
+            background: #e7f0f8;
+            padding: 2px 8px;
+            border-radius: 20px;
+            display: inline-block;
         }
 
         .footer {
@@ -400,9 +411,9 @@
         </div>
     </div>
 
-    <!-- 两大分类：常用软件、在线测试 -->
+    <!-- 三大分类：常用软件、在线测试、常见问题 -->
     <div class="categories">
-        <!-- 1. 常用软件（新增 Windows激活工具） -->
+        <!-- 1. 常用软件 -->
         <section class="category">
             <div class="category-header">
                 <i class="fas fa-laptop"></i>
@@ -410,76 +421,69 @@
                 <span class="category-desc">· 办公必备</span>
             </div>
             <div class="site-grid">
-                <!-- 1. 打印机驱动网 -->
                 <a href="https://www.dyjqd.com/" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-print"></i></div>
                     <span class="site-name">打印机驱动网</span>
                     <span class="site-domain">dyjqd.com</span>
                 </a>
-                <!-- 2. 办公字体14个 -->
                 <a href="https://wwbwr.lanzouw.com/iwd5Q3n8lx6f" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-font"></i></div>
                     <span class="site-name">办公字体14个</span>
                     <span class="site-domain">lanzouw.com</span>
                 </a>
-                <!-- 3. WPS教育考试专用版 -->
                 <a href="https://ncre.neea.edu.cn/res/Home/2012/1ab1f38f3a81af338dbb4f6495568f28.rar" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-file-word"></i></div>
                     <span class="site-name">WPS教育考试专用版</span>
                     <span class="site-domain">ncre.neea.edu.cn</span>
                 </a>
-                <!-- 4. ApabiReader4.5.2.1790 -->
                 <a href="https://wwbwr.lanzouw.com/iYRqT3n8ljni" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-book-open"></i></div>
                     <span class="site-name">ApabiReader4.5.2.1790</span>
                     <span class="site-domain">lanzouw.com</span>
                 </a>
-                <!-- 5. WPS启用宏 -->
                 <a href="https://wwbwr.lanzouw.com/inhQo3n8lmgj" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-cog"></i></div>
                     <span class="site-name">WPS启用宏</span>
                     <span class="site-domain">lanzouw.com</span>
                 </a>
-                <!-- 6. 海政通 -->
                 <a href="https://download-xc-pro-ding.hzt.hainan.gov.cn/hzthlw_pc/index.html" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-sailboat"></i></div>
                     <span class="site-name">海政通</span>
                     <span class="site-domain">hainan.gov.cn</span>
                 </a>
-                <!-- 7. 智海安全卫士(云镜版) -->
                 <a href="https://36.101.208.5" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-shield-hal"></i></div>
                     <span class="site-name">智海安全卫士(云镜版)</span>
                     <span class="site-domain">36.101.208.5</span>
                 </a>
-                <!-- 8. 智海安全卫士(天擎版) -->
                 <a href="https://36.101.208.5:32185/about/download" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-shield-virus"></i></div>
                     <span class="site-name">智海安全卫士(天擎版)</span>
                     <span class="site-domain">36.101.208.5:32185</span>
                 </a>
-                <!-- 9. 谷歌浏览器 -->
                 <a href="https://www.google.cn/chrome/" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fab fa-chrome"></i></div>
                     <span class="site-name">谷歌浏览器</span>
                     <span class="site-domain">google.cn/chrome</span>
                 </a>
-                <!-- 10. 椰子树VPN -->
                 <a href="https://wwbwr.lanzouw.com/irCYT3n8lh7a" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-tree"></i></div>
                     <span class="site-name">椰子树VPN</span>
                     <span class="site-domain">lanzouw.com</span>
                 </a>
-                <!-- 11. 国产电脑VPN -->
                 <a href="https://app.topsec.com.cn/linux-more.html" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-laptop"></i></div>
                     <span class="site-name">国产电脑VPN</span>
                     <span class="site-domain">topsec.com.cn</span>
                 </a>
-                <!-- 12. Windows激活工具 (新增) -->
                 <a href="https://wwbwr.lanzouw.com/iq5E53h6hzrg" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fab fa-windows"></i></div>
                     <span class="site-name">Windows激活工具</span>
+                    <span class="site-domain">lanzouw.com</span>
+                </a>
+                <a href="https://wwbwr.lanzouw.com/iC5P93o7zwjg" target="_blank" rel="noopener" class="site-card">
+                    <div class="site-icon"><i class="fas fa-broom"></i></div>
+                    <span class="site-name">C盘清理工具</span>
                     <span class="site-domain">lanzouw.com</span>
                 </a>
             </div>
@@ -493,36 +497,63 @@
                 <span class="category-desc">· 外设与网络检测</span>
             </div>
             <div class="site-grid">
-                <!-- 鼠标测试 -->
                 <a href="https://www.mousetester.cn/" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-arrows-alt"></i></div>
                     <span class="site-name">鼠标测试</span>
                     <span class="site-domain">mousetester.cn</span>
                 </a>
-                <!-- 键盘测试 -->
                 <a href="https://www.zfrontier.com/lab/keyboardTester" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-keyboard"></i></div>
                     <span class="site-name">键盘测试</span>
                     <span class="site-domain">zfrontier.com</span>
                 </a>
-                <!-- 网速测试 -->
                 <a href="https://test.ustc.edu.cn/" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-tachometer-alt"></i></div>
                     <span class="site-name">网速测试</span>
                     <span class="site-domain">test.ustc.edu.cn</span>
                 </a>
-                <!-- CPU测试 -->
                 <a href="http://cpu.jy6d.com/" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-microchip"></i></div>
                     <span class="site-name">CPU测试</span>
                     <span class="site-domain">cpu.jy6d.com</span>
                 </a>
-                <!-- 显卡测试 -->
                 <a href="http://gpu.jy6d.com/" target="_blank" rel="noopener" class="site-card">
                     <div class="site-icon"><i class="fas fa-tv"></i></div>
                     <span class="site-name">显卡测试</span>
                     <span class="site-domain">gpu.jy6d.com</span>
                 </a>
+            </div>
+        </section>
+
+        <!-- 3. 常见问题（新增关闭硬盘开机自检） -->
+        <section class="category">
+            <div class="category-header">
+                <i class="fas fa-question-circle"></i>
+                <h2>常见问题</h2>
+                <span class="category-desc">· 序列号与技巧</span>
+            </div>
+            <div class="site-grid">
+                <div class="site-card copy-card" data-code="694BF-YUDBG-EAR69-BPRGB-ATQXH">
+                    <div class="site-icon"><i class="fas fa-key"></i></div>
+                    <span class="site-name">wps激活序列号1</span>
+                    <span class="site-domain">点击复制</span>
+                    <span class="copy-hint">694BF-YUDBG...</span>
+                </div>
+                <div class="site-card copy-card" data-code="YA63N-2KPNK-FETLY-MKR89-TPJRE">
+                    <div class="site-icon"><i class="fas fa-key"></i></div>
+                    <span class="site-name">wps激活序列号2</span>
+                    <span class="site-domain">点击复制</span>
+                    <span class="copy-hint">YA63N-2KPNK...</span>
+                </div>
+                <!-- 新增：关闭硬盘开机自检 -->
+                <div class="site-card copy-card" data-code="HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager">
+                    <div class="site-icon" title="按 Win + R，输入 regedit 并回车，定位到 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager，双击右侧 BootExecute 键值，清空数值数据后保存并重启。">
+                        <i class="fas fa-hdd"></i>
+                    </div>
+                    <span class="site-name">关闭硬盘开机自检</span>
+                    <span class="site-domain">点击复制路径</span>
+                    <span class="copy-hint">鼠标悬停图标看步骤</span>
+                </div>
             </div>
         </section>
     </div>
@@ -567,6 +598,40 @@
                 performSearch();
             }
         });
+
+        // 复制功能（适用于所有 .copy-card）
+        document.querySelectorAll('.copy-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                const code = this.getAttribute('data-code');
+                if (!code) return;
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(code).then(() => {
+                        alert('✅ 已复制：' + code);
+                    }).catch(() => {
+                        fallbackCopy(code);
+                    });
+                } else {
+                    fallbackCopy(code);
+                }
+            });
+        });
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                alert('✅ 已复制：' + text);
+            } catch (err) {
+                alert('❌ 复制失败，请手动复制：' + text);
+            }
+            document.body.removeChild(textarea);
+        }
     })();
 </script>
 </body>
